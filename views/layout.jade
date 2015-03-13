@@ -21,7 +21,7 @@ html
     +ie('if lt IE 9')
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-    title= title
+    title facemakr.io
   body(data-spy='scroll')
     div(id='fb-root')
     script.
@@ -36,4 +36,28 @@ html
       div(class='container')
         h1(class='logo pull-left')
           a(class='scrollto',href='#promo')
-            span(class='logo-title') devAid
+            span(class='logo-title') facemakr.io
+        nav(id='main-nav', class='main-nav navbar-right', role='navigation')
+          div(class='navbar-header')
+            button(class='navbar-toggle',type='button',data-toggle='collapse',data-target='#navbar-collapse')
+              span(class='sr-only') Toggle navigation
+              span(class='icon-bar')
+              span(class='icon-bar')
+              span(class='icon-bar')
+          div(class='navbar-collapse collapse', id='navbar-collapse')
+            ul(class='nav navbar-nav')
+              li(class='active nav-item sr-only')
+                a(class='scrollto',href='#promo') Home
+              li(class='nav-item')
+                a(class='scrollto',href='#about') About
+              li(class='nav-item')
+                a(class='scrollto',href='#features') Features
+              li(class='nav-item')
+                a(class='scrollto',href='#docs') Docs
+              li(class='nav-item')
+                a(class='scrollto',href='#license') License
+              li(class='nav-item last')
+                a(class='scrollto',href='#contact') Contact
+    section(id='promo', class='promo section offset-header')
+      div(class='container text-center')
+        h2(class='title') facemakr.io
