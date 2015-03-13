@@ -24,3 +24,16 @@ html
     title= title
   body(data-spy='scroll')
     div(id='fb-root')
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    header(id='header',class='header')
+      div(class='container')
+        h1(class='logo pull-left')
+          a(class='scrollto',href='#promo')
+            span(class='logo-title') devAid
