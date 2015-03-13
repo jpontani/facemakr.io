@@ -199,6 +199,12 @@ pre code {
   margin: 0 auto;
   margin-bottom: 30px;
 }
+.promo .intro a {
+  color: #2a435c;
+}
+.promo .intro a:hover {
+    color: #f46fa3;
+}
 .promo .btns .btn {
   margin-right: 15px;
   font-size: 18px;
