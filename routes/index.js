@@ -6,4 +6,8 @@ router.get('/', function(req, res) {
   res.render('layout');
 });
 
+router.get('/request', function(req, res) {
+  res.render('request', {});
+});
+
 module.exports = router;

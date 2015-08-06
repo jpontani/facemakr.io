@@ -5,9 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var emailer = require('nodemailer');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var models = require('./routes/models');
+var watchface = require('./models/watchface');
 
 var app = express();
 
@@ -21,18 +24,48 @@ app.set('view engine', 'jade');
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.session({secret: 'facemakrio_38fmN83n*#(nlKj*3j'}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api', models);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
+});
+
+app.post('/request', function(req, res) {
+    var transport = emailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'facemakr.io@gmail.com',
+            pass: 'k3*jfm3Kifol1$158fjEMmne'
+        }
+    });
+    var mailToUserOptions = {
+        from: 'facemakr.io &lt; facemakr.io@gmail.com &gt;',
+        to: req.body.email,
+        subject: '',
+        text: ''
+    };
+    var mailToSiteOptions = {
+        to: 'facemakr.io &lt; facemakr.io@gmail.com &gt;',
+        from: req.body.email,
+        subject: '[facemakr.io] Beta Request',
+        text: ''
+    };
+    transport.sendMail(mailToSiteOptions, function(err, resp) {
+        if (err) {
+            // An error occurred.
+            resp.render();
+        }
+    });
 });
 
 // error handlers

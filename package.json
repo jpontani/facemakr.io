@@ -14,6 +14,9 @@
     "debug": "~2.1.1",
     "jade": "~1.8.2",
     "mongodb": "*",
-    "monk": "*"
+    "mongoose": "*",
+    "monk": "*",
+    "validator": "*",
+    "nodemailer": "*"
   }
 }
